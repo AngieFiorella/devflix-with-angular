@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="main-app">
+<head>
+  <meta charset="UTF-8">
+  <title>NetFlix</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="styles/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+</head>
+<body ng-controller="ControllerPrincipal">
+  <header>
+    <div class="left">
+      <img class="logo" src="images/logo.png" alt="logo"/>
+      <a href="#">Explorar</a>
+      <i class="fa fa-sort-desc" aria-hidden="true"></i>
+    </div>
+    <div class="right">
+      <input class="search" type="text/" placeholder="Buscar títulos, personas, géneros" />
+      <i class="fa fa-bell"></i>
+      <img class="profile-photo" src="images/bryam.jpg" alt=""/>
+      <span class="user-name">Bryam</span>
+      <i class="fa fa-sort-desc" aria-hidden="true"></i>
+    </div>
+  </header>
+  <section class="cover-page">
+    <div class="main-view">
+      <img class="main-image" src="images/ouija.png"/>
+      <span>2015</span>
+      <span class="public">NR</span>
+      <span>1h 24m</span>
+      <p>Cada generación tiene un terrorífico juego de miedo. Ahora están en uno... y quizá no lleguen a conocer el siguiente.</p>
+      <button class="button primary"><i class="fa fa-play"></i>reproducir</button>
+      <button class="button secundary"><i class="fa fa-plus-circle"></i>mi lista</button>
+    </div>
+    <img class="background" src="images/ouija-background.jpg">
+  </section>
+  <section class="series">
+    <h2>Agregados recientemente</h2>
+    <div class="row">
+      <article ng-repeat="serie in listaSeries | filter: serie.recently === true">
+        <img ng-src="{{ serie.poster }}" alt="{{ serie.title }}" class="serie-image" />
+        <div class="serie-text">
+          <div class="play"></div>
+          <div class="content-serie">
+            <h4>{{ serie.title }}</h4>
+            <i class="fa fa-star"></i><!--
+            --><i class="fa fa-star"></i><!--
+            --><i class="fa fa-star"></i><!--
+            --><i class="fa fa-star"></i><!--
+            --><i class="fa fa-star"></i>
+            <span class="info-serie">{{ serie.year }}</span>
+            <span class="public-available">{{ serie.rated }}</span>
+            <span class="info-serie" ng-show="serie.duration">{{ serie.duration }}</span>
+            <span class="info-serie" ng-show="serie.duration">{{ serie.seasons }}</span>
+            <div class="main-div">
+              <div class="above-div">
+                <p class="parragraph">
+                {{ serie.description }}
+                </p>
+                <i class="fa fa-plus-circle" id="playit"></i>
+              </div>
+              <div class="below-div">
+                <p class="flecha">›</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="series">
+    <h2>Drama</h2>
+    <div class="row">
+    <article ng-repeat="serie in listaSeries | filter: serie.genre = 'Drama'">
+      <img ng-src="{{ serie.poster }}" alt="{{ serie.title}}" />
+      <div class="serie-text">
+        <div class="play"></div>
+        <div class="content-serie">
+          <h4>{{ serie.title}}</h4>
+          <i class="fa fa-star"></i><!--
+          --><i class="fa fa-star"></i><!--
+          --><i class="fa fa-star"></i><!--
+          --><i class="fa fa-star"></i><!--
+          --><i class="fa fa-star"></i>
+          <span class="info-serie">{{ serie.year}}</span>
+          <span class="public-available">{{ serie.rated}}</span>
+          <span class="info-serie" ng-show="serie.duration">{{ serie.duration }}</span>
+          <span class="info-serie" ng-show="serie.duration">{{ serie.seasons }}</span>
+          <div class="main-div">
+            <div class="above-div">
+              <p class="parragraph">
+              {{ serie.description }}}
+              </p>
+              <i class="fa fa-plus-circle" id="playit"></i>
+            </div>
+            <div class="below-div">
+              <p class="flecha">›</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    </div>
+  </section>
+  <section class="series">
+    <h2>Comedia</h2>
+    <div class="row">
+      <article ng-repeat="serie in listaSeries | filter: serie.genre='Comedy'">
+        <img ng-src="{{ serie.poster }}" alt="{{ serie.title}}">
+        <div class="serie-text">
+          <div class="play"></div>
+          <div class="content-serie">
+            <h4>{{ serie.title}}</h4>
+            <i class="fa fa-star"></i><!--
+            --><i class="fa fa-star"></i><!--
+            --><i class="fa fa-star"></i><!--
+            --><i class="fa fa-star"></i><!--
+            --><i class="fa fa-star"></i>
+            <span class="info-serie">{{ serie.year}}</span>
+            <span class="public-available">{{ serie.rated }}</span>
+            <span class="info-serie" ng-show="serie.duration">{{ serie.duration }}</span>
+            <span class="info-serie" ng-show="serie.duration">{{ serie.seasons}}</span>
+            <div class="main-div">
+              <div class="above-div">
+                <p class="parragraph">
+                {{ serie.description}}
+                </p>
+                <i class="fa fa-plus-circle" id="playit"></i>
+              </div>
+              <div class="below-div">
+                <p class="flecha">›</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+</body>
+</html>
